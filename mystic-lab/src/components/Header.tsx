@@ -40,20 +40,20 @@ const Header = () => {
   return (
    <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-100 dark:border-gray-800 sticky top-0 z-50">
   <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center h-16 md:h-20"> {/* Increased height on medium+ devices */}
-      {/* Logo - Made responsive */}
+    <div className="flex justify-between items-center h-20 md:h-24">
+      {/* Logo - Made larger */}
       <Link to="/" className="flex items-center space-x-2">
         <img
           src="/logo.png"
           alt="Medoscopic Pharma Logo"
-          className="h-10 w-auto sm:h-12 md:h-14 lg:h-16" // Responsive sizing
+          className="h-14 w-auto sm:h-18 md:h-21 lg:h-24 transition-transform duration-700 ease-out hover:scale-110"
         />
-        {/* Optional: Add text logo for larger screens */}
+        {/* Optional: Logo Text */}
         <span className="hidden sm:inline-block text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white">
+          {/* Optionally add brand name here */}
         </span>
       </Link>
 
-      {/* Rest of your code remains the same */}
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-8">
         {navigation.map((item) => (
@@ -71,9 +71,8 @@ const Header = () => {
         ))}
       </div>
 
-      {/* Right side actions */}
+      {/* Right Side Actions */}
       <div className="flex items-center space-x-4">
-        {/* Theme Toggle */}
         <Button
           variant="ghost"
           size="sm"
@@ -87,7 +86,6 @@ const Header = () => {
           )}
         </Button>
 
-        {/* Mobile menu button */}
         <Button
           variant="ghost"
           size="sm"
@@ -126,6 +124,7 @@ const Header = () => {
     )}
   </nav>
 </header>
+
   );
 };
 
