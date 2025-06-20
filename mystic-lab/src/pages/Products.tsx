@@ -234,6 +234,7 @@ const Products = () => {
                         variant="outline"
                         size="sm"
                         className="flex-1 border-medoscopic-blue-600 text-medoscopic-blue-600 hover:bg-medoscopic-blue-600 hover:text-white"
+                        onClick={() => navigate(`/products/${product.id}`)}
                       >
                         View Details
                       </Button>
