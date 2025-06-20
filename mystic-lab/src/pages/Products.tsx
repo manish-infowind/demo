@@ -29,12 +29,15 @@ import {
   Filter,
 } from "lucide-react";
 
+import { products } from "@/lib/products";
+
 const Products = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("name");
 
-  const products = [
+  const productList = [
     {
       id: 1,
       name: "CardioMax Pro",
