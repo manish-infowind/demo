@@ -120,7 +120,7 @@ const Index = () => {
         <img
           src="/logo.png"
           alt="Medoscopic Pharma Logo"
-          className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto mx-auto mb-6" // Increased sizes
+          className="h-30 sm:h-36 md:h-42 lg:h-48 w-auto mx-auto mb-6 transition-transform duration-700 ease-out hover:scale-110"
         />
       </div>
       <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
@@ -133,6 +133,7 @@ const Index = () => {
     </div>
   </div>
 </section>
+
 
       {/* Stats Section */}
       <section className="py-16 bg-white dark:bg-gray-900">
