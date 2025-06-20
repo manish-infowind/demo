@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -28,133 +29,13 @@ import {
   Filter,
 } from "lucide-react";
 
+import { products } from "@/lib/products";
+
 const Products = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("name");
-
-  const products = [
-    {
-      id: 1,
-      name: "CardioMax Pro",
-      category: "Cardiovascular",
-      description:
-        "Advanced cardiovascular support formula with proven clinical results for heart health optimization.",
-      price: 89.99,
-      rating: 4.8,
-      reviews: 245,
-      image:
-        "https://images.pexels.com/photos/3873209/pexels-photo-3873209.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["FDA Approved", "Clinically Tested", "Natural Formula"],
-      icon: Heart,
-      inStock: true,
-    },
-    {
-      id: 2,
-      name: "ImmunoShield Plus",
-      category: "Immunity",
-      description:
-        "Comprehensive immune system support with advanced antioxidants and essential vitamins.",
-      price: 64.99,
-      rating: 4.9,
-      reviews: 312,
-      image:
-        "https://images.pexels.com/photos/3873193/pexels-photo-3873193.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Vitamin Enhanced", "Rapid Absorption", "24h Protection"],
-      icon: Shield,
-      inStock: true,
-    },
-    {
-      id: 3,
-      name: "NeuroFocus Elite",
-      category: "Cognitive Health",
-      description:
-        "Premium cognitive enhancement formula designed to improve focus, memory, and mental clarity.",
-      price: 79.99,
-      rating: 4.7,
-      reviews: 189,
-      image:
-        "https://images.pexels.com/photos/3873173/pexels-photo-3873173.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Brain Health", "Memory Support", "Focus Enhancement"],
-      icon: Microscope,
-      inStock: true,
-    },
-    {
-      id: 4,
-      name: "DigestWell Pro",
-      category: "Digestive Health",
-      description:
-        "Advanced digestive support with probiotics and enzymes for optimal gut health and comfort.",
-      price: 54.99,
-      rating: 4.6,
-      reviews: 156,
-      image:
-        "https://images.pexels.com/photos/3873166/pexels-photo-3873166.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Probiotic Blend", "Enzyme Complex", "Gut Health"],
-      icon: Pill,
-      inStock: false,
-    },
-    {
-      id: 5,
-      name: "VitalityMax",
-      category: "Energy & Wellness",
-      description:
-        "Complete wellness formula providing sustained energy and overall health support for active lifestyles.",
-      price: 69.99,
-      rating: 4.8,
-      reviews: 298,
-      image:
-        "https://images.pexels.com/photos/3873152/pexels-photo-3873152.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Energy Boost", "Wellness Support", "Active Lifestyle"],
-      icon: Stethoscope,
-      inStock: true,
-    },
-    {
-      id: 6,
-      name: "JointFlex Advanced",
-      category: "Joint Health",
-      description:
-        "Revolutionary joint support formula with glucosamine, chondroitin, and anti-inflammatory compounds.",
-      price: 74.99,
-      rating: 4.7,
-      reviews: 203,
-      image:
-        "https://images.pexels.com/photos/3873148/pexels-photo-3873148.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Joint Support", "Mobility Enhancement", "Pain Relief"],
-      icon: Shield,
-      inStock: true,
-    },
-    {
-      id: 7,
-      name: "SleepWell Natural",
-      category: "Sleep & Recovery",
-      description:
-        "Natural sleep support formula with melatonin, valerian root, and calming herbs for restful sleep.",
-      price: 49.99,
-      rating: 4.5,
-      reviews: 178,
-      image:
-        "https://images.pexels.com/photos/3873145/pexels-photo-3873145.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Natural Ingredients", "Non-Habit Forming", "Deep Sleep"],
-      icon: Pill,
-      inStock: true,
-    },
-    {
-      id: 8,
-      name: "MetaboLift Pro",
-      category: "Weight Management",
-      description:
-        "Advanced metabolism support formula designed to help maintain healthy weight and energy levels.",
-      price: 84.99,
-      rating: 4.6,
-      reviews: 134,
-      image:
-        "https://images.pexels.com/photos/3873140/pexels-photo-3873140.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: ["Metabolism Support", "Energy Boost", "Natural Formula"],
-      icon: Heart,
-      inStock: true,
-    },
-  ];
 
   const categories = [
     "all",
@@ -353,6 +234,7 @@ const Products = () => {
                         variant="outline"
                         size="sm"
                         className="flex-1 border-medoscopic-blue-600 text-medoscopic-blue-600 hover:bg-medoscopic-blue-600 hover:text-white"
+                        onClick={() => navigate(`/products/${product.id}`)}
                       >
                         View Details
                       </Button>
